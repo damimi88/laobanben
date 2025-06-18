@@ -1,28 +1,29 @@
-const blockedRaw = [
-  "wife", "mother", "girl", "lady", "mom", "mum", "sheher", "theythem", "female", "hershe", "ladies", "ms", "mrs", "feminist", "feminism", "pronouns", "actress", "cat lady",
-  "marriage", "married", "husband",
-  "crypto", "bitcoiner", "nft", "cryptocurrency", "finance", "banker", "investment banker", "hedge fund manager", "financial advisor", "portfolio manager", "asset manager", "real estate investor", "realtor", "broker", "insurance", "insurer", "actuary", "underwriter", "claims adjuster", "insurance agent", "insurance broker", "life insurance", "health insurance", "car insurance", "home insurance", "insurance sales", "insurance company",
-  "lawyer", "attorney", "barrister", "legal counsel", "esq", "esquire", "paralegal",
-  "it", "tech", "programmer", "coder", "developer", "web developer", "frontend", "backend", "fullstack", "data scientist", "ai engineer", "machine learning", "cloud computing", "cybersecurity", "network engineer", "system admin", "devops", "ux designer", "ui designer", "product manager", "scrum master", "agile coach", "blockchain", "fintech", "it consultant", "computer scientist", "software engineer",
-  "bank", "banking", "investment bank", "retail banking", "commercial bank", "private banking", "loan officer", "credit analyst", "bank teller", "financial analyst", "stockbroker", "wealth manager", "forex trader", "auditor", "accountant", "cpa",
-  "dm", "dms", "scam", "fraud", "scammer", "con artist", "swindle", "ripoff", "deception", "cheat", "bot", "chat",
-  "retired teacher", "retired nurse", "retired librarian",
-  "abigail", "amber", "amanda", "amy", "angela", "ann", "anna", "ashley", "ava", "brenda", "betty", "carole", "carol", "carrie", "cheryl", "charlotte", "christine", "cynthia", "connie", "deborah", "debra", "denise", "diana", "donna", "emma", "emily", "erin", "ella", "fran", "gina", "grace", "harper", "heather", "jamie", "janet", "jennifer", "jessica", "josie", "julie", "karen", "katherine", "kathleen", "kelly", "kimberly", "kristen", "laura", "linda", "lisa", "lynn", "lib", "margaret", "mary", "megan", "melissa", "mia", "michelle", "nancy", "nicole", "noni", "olivia", "pamela", "patricia", "rachel", "rebecca", "ruth", "samantha", "sandra", "sarah", "scarlett", "shannon", "sharon", "sheryl", "shirley", "sophia", "stephanie", "susan", "tanya", "tiffany", "tina", "tracy", "vicky", "wendy"
-];
-
-const targetKeywords = [
-  "doctor", "dr.", "md", "m.d.", "doctor of medicine", "phd in medicine", "medical phd", "clinical doctor", "consultant physician", "licensed doctor",
-  "cardiologist", "pediatrician", "orthopedic surgeon", "neurologist", "dermatologist", "ophthalmologist", "psychiatrist", "gynecologist", "urologist", "anesthesiologist", "radiologist", "general surgeon", "ent specialist", "dentist", "oncologist", "endocrinologist", "gastroenterologist", "pulmonologist", "nephrologist", "hematologist", "pathologist", "rehabilitation specialist",
-  "dentist", "orthodontist", "oral surgeon", "prosthodontist", "pediatric dentist",
-  "mechanical engineer", "automotive engineer", "manufacturing engineer", "industrial engineer",
-  "electrical engineer", "electronics engineer", "power systems engineer", "instrumentation engineer",
-  "civil engineer", "structural engineer", "construction engineer", "architectural engineer",
-  "aerospace engineer", "aeronautical engineer", "aviation engineer",
-  "automotive engineer", "marine engineer", "naval architect",
-  "chemical engineer", "petroleum engineer", "mining engineer", "environmental engineer",
-  "veteran", "air force", "navy", "army", "marine", "pilot", "fire chief", "police", "union carpenter", "mechanic", "truck driver", "electrician", "plumber", "welder", "construction worker", "contractor", "rancher",
-  "grandpa", "old man", "elderly", "senior citizen", "divorced", "divorcee", "widower", "lost his wife", "lonely widower",
-  "photographer", "professional photographer", "hobbyist", "retired photographer", "senior photographer", "photo enthusiast", "camera lover", "nature photographer", "bird watcher", "traveler", "travel enthusiast", "woodworker", "gardener", "classic car collector", "fishing enthusiast", "painter", "artist", "musician", "dog lover", "snake keeper", "aquarium hobbyist", "model train enthusiast", "collector",
-  "he", "him", "his", "himself", "man", "gentleman", "guy", "grandfather", "dad", "father", "male", "masculine", "mr", "sir", "gent", "uncle", "old gent", "retired man", "real man",
-  "engineer", "engineering", "professional engineer", "licensed engineer"
-];
+{
+  "blockedRaw": [
+    "wife", "mother", "girl", "lady", "mom", "mum", "sheher", "theythem", "female", "hershe", "ladies", "ms", "mrs", "feminist", "feminism", "pronouns", "actress", "cat lady",
+    "marriage", "married", "husband",
+    "crypto", "bitcoiner", "nft", "cryptocurrency", "finance", "banker", "investment banker", "hedge fund manager", "financial advisor", "portfolio manager", "asset manager", "real estate investor", "realtor", "broker", "insurance", "insurer", "actuary", "underwriter", "claims adjuster", "insurance agent", "insurance broker", "life insurance", "health insurance", "car insurance", "home insurance", "insurance sales", "insurance company",
+    "lawyer", "attorney", "barrister", "legal counsel", "esq", "esquire", "paralegal",
+    "it", "tech", "programmer", "coder", "developer", "web developer", "frontend", "backend", "fullstack", "data scientist", "ai engineer", "machine learning", "cloud computing", "cybersecurity", "network engineer", "system admin", "devops", "ux designer", "ui designer", "product manager", "scrum master", "agile coach", "blockchain", "fintech", "it consultant", "computer scientist", "software engineer",
+    "bank", "banking", "investment bank", "retail banking", "commercial bank", "private banking", "loan officer", "credit analyst", "bank teller", "financial analyst", "stockbroker", "wealth manager", "forex trader", "auditor", "accountant", "cpa",
+    "dm", "dms", "scam", "fraud", "scammer", "con artist", "swindle", "ripoff", "deception", "cheat", "bot", "chat",
+    "retired teacher", "retired nurse", "retired librarian",
+    "abigail", "amber", "amanda", "amy", "angela", "ann", "anna", "ashley", "ava", "brenda", "betty", "carole", "carol", "carrie", "cheryl", "charlotte", "christine", "cynthia", "connie", "deborah", "debra", "denise", "diana", "donna", "emma", "emily", "erin", "ella", "fran", "gina", "grace", "harper", "heather", "jamie", "janet", "jennifer", "jessica", "josie", "julie", "karen", "katherine", "kathleen", "kelly", "kimberly", "kristen", "laura", "linda", "lisa", "lynn", "lib", "margaret", "mary", "megan", "melissa", "mia", "michelle", "nancy", "nicole", "noni", "olivia", "pamela", "patricia", "rachel", "rebecca", "ruth", "samantha", "sandra", "sarah", "scarlett", "shannon", "sharon", "sheryl", "shirley", "sophia", "stephanie", "susan", "tanya", "tiffany", "tina", "tracy", "vicky", "wendy"
+  ],
+  "targetKeywords": [
+    "doctor", "dr.", "md", "m.d.", "doctor of medicine", "phd in medicine", "medical phd", "clinical doctor", "consultant physician", "licensed doctor",
+    "cardiologist", "pediatrician", "orthopedic surgeon", "neurologist", "dermatologist", "ophthalmologist", "psychiatrist", "gynecologist", "urologist", "anesthesiologist", "radiologist", "general surgeon", "ent specialist", "dentist", "oncologist", "endocrinologist", "gastroenterologist", "pulmonologist", "nephrologist", "hematologist", "pathologist", "rehabilitation specialist",
+    "dentist", "orthodontist", "oral surgeon", "prosthodontist", "pediatric dentist",
+    "mechanical engineer", "automotive engineer", "manufacturing engineer", "industrial engineer",
+    "electrical engineer", "electronics engineer", "power systems engineer", "instrumentation engineer",
+    "civil engineer", "structural engineer", "construction engineer", "architectural engineer",
+    "aerospace engineer", "aeronautical engineer", "aviation engineer",
+    "automotive engineer", "marine engineer", "naval architect",
+    "chemical engineer", "petroleum engineer", "mining engineer", "environmental engineer",
+    "veteran", "air force", "navy", "army", "marine", "pilot", "fire chief", "police", "union carpenter", "mechanic", "truck driver", "electrician", "plumber", "welder", "construction worker", "contractor", "rancher",
+    "grandpa", "old man", "elderly", "senior citizen", "divorced", "divorcee", "widower", "lost his wife", "lonely widower",
+    "photographer", "professional photographer", "hobbyist", "retired photographer", "senior photographer", "photo enthusiast", "camera lover", "nature photographer", "bird watcher", "traveler", "travel enthusiast", "woodworker", "gardener", "classic car collector", "fishing enthusiast", "painter", "artist", "musician", "dog lover", "snake keeper", "aquarium hobbyist", "model train enthusiast", "collector",
+    "he", "him", "his", "himself", "man", "gentleman", "guy", "grandfather", "dad", "father", "male", "masculine", "mr", "sir", "gent", "uncle", "old gent", "retired man", "real man",
+    "engineer", "engineering", "professional engineer", "licensed engineer"
+  ]
+}

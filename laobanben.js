@@ -1,7 +1,6 @@
 (async function autoFollowBsky() {
   const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
-  // 远程拉取关键词JSON
   async function fetchKeywords() {
     try {
       const res = await fetch('https://raw.githubusercontent.com/damimi88/laobanben/refs/heads/main/guanjianci.json', { cache: "no-store" });
@@ -23,26 +22,28 @@
   let isPaused = false;
 
   const counterBox = document.createElement("div");
-  counterBox.style.position = "fixed";
-  counterBox.style.bottom = "20px";
-  counterBox.style.right = "20px";
-  counterBox.style.backgroundColor = "#222";
-  counterBox.style.color = "#0f0";
-  counterBox.style.padding = "10px 15px";
-  counterBox.style.borderRadius = "8px";
-  counterBox.style.fontSize = "14px";
-  counterBox.style.zIndex = "9999";
-  counterBox.style.boxShadow = "0 0 8px rgba(0,0,0,0.5)";
+  Object.assign(counterBox.style, {
+    position: "fixed",
+    bottom: "20px",
+    right: "20px",
+    backgroundColor: "#222",
+    color: "#0f0",
+    padding: "10px 15px",
+    borderRadius: "8px",
+    fontSize: "14px",
+    zIndex: "9999",
+    boxShadow: "0 0 8px rgba(0,0,0,0.5)"
+  });
   counterBox.innerText = `✅ Followed: ${followCount}`;
   document.body.appendChild(counterBox);
 
   document.addEventListener("keydown", (e) => {
-    if (e.key.toLowerCase() === "q") {
+    const key = e.key.toLowerCase();
+    if (key === "q") {
       isPaused = true;
       counterBox.style.display = "none";
       console.log("⏸ 暂停执行");
-    }
-    if (e.key.toLowerCase() === "r") {
+    } else if (key === "r") {
       isPaused = false;
       counterBox.style.display = "block";
       console.log("▶️ 继续执行");

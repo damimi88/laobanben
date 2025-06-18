@@ -1,4 +1,28 @@
-(async function autoFollowBsky() {
+addEventListener('fetch', event => {
+  event.respondWith(handleRequest(event.request));
+});
+
+async function handleRequest(request) {
+  const { method, url } = request;
+  const requestURL = new URL(url);
+
+  // 只处理 /auto-follow.js 路径
+  if (requestURL.pathname === '/auto-follow.js') {
+    // 预检请求
+    if (method === 'OPTIONS') {
+      return new Response(null, {
+        status: 204,
+        headers: {
+          'Access-Control-Allow-Origin': 'https://bsky.app',
+          'Access-Control-Allow-Methods': 'GET, OPTIONS',
+          'Access-Control-Allow-Headers': 'Content-Type',
+        },
+      });
+    }
+
+    // GET 请求返回脚本内容
+    if (method === 'GET') {
+      const script = `(async function autoFollowBsky() {
   const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
   async function fetchKeywords() {
@@ -107,3 +131,18 @@
 
   autoScroll();
 })();
+`;
+
+      return new Response(script, {
+        headers: {
+          'Content-Type': 'application/javascript',
+          'Access-Control-Allow-Origin': 'https://bsky.app',
+          'Access-Control-Allow-Methods': 'GET, OPTIONS'
+        }
+      });
+    }
+  }
+
+  // 其他请求一律返回 404
+  return new Response('Not Found', { status: 404 });
+}

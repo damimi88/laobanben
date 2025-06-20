@@ -96,7 +96,7 @@
       return;
     }
 
-    if (profile.followersCount > 500 || profile.followsCount > 500) {
+    if (profile.followersCount > 999 || profile.followsCount > 999) {
       console.log(`⛔️ 粉丝/关注数过多: ${handle} 粉丝:${profile.followersCount}, 关注:${profile.followsCount}`);
       card.style.backgroundColor = "#333";
       return;
